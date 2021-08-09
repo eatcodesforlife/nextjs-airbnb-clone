@@ -1,0 +1,44 @@
+{
+  "places" :  [
+    { 
+      "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628293619/airbnb-clone/explore-dxb_j285cb.webp",
+      "location":"Dubai",
+      "distance":"15 minute drive"
+    },
+    { 
+      "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628293636/airbnb-clone/explore-auh_hiofuf.webp",
+      "location":"Abu Dhabi",
+      "distance":"2 hour drive"
+    },
+    { 
+      "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628293636/airbnb-clone/explore-ajman_vadgo3.webp",
+      "location":"Ajman",
+      "distance":"45 minute drive"
+    },
+    { 
+      "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628293636/airbnb-clone/explore-aljazira_qravyq.webp",
+      "location":"Al Jazira Al Hamra",
+      "distance":"1.5 hour drive"
+    },
+    { 
+      "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628294131/airbnb-clone/explore-ras_rbqtuj.webp",
+      "location":"Ras Al-Khaimah",
+      "distance":"45 minute drive"
+    },
+    { 
+      "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628293636/airbnb-clone/explore-alain_e9isxf.webp",
+      "location":"Al Ain",
+      "distance":"2 hour drive"
+    },
+    { 
+      "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628293636/airbnb-clone/explore-dibba_wyg55u.webp",
+      "location":"Dibba Al Fujairah",
+      "distance":"2-hour drive"
+    },
+    { 
+      "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628293636/airbnb-clone/explore-khor_mkqrcf.webp",
+      "location":"Khor Fakkan",
+      "distance":"2 hour drive"
+    }
+   ]
+}
