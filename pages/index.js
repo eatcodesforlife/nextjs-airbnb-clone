@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
-export default function Home({ explorePlacesData, liveAnywhereData, footerData }) {
+const Home = ({ explorePlacesData, liveAnywhereData, footerData }) => {
 
   return (
     <div>
@@ -23,17 +23,19 @@ export default function Home({ explorePlacesData, liveAnywhereData, footerData }
   )
 }
 
+export default Home
 
 export const getStaticProps = async () => {
   const resPlaces = await fetch('https://jsonkeeper.com/b/23D3')
   const explorePlacesData = await resPlaces.json()
 
+  const getFooterData = await fetch('https://jsonkeeper.com/b/C0KE')
+  const footerData = await getFooterData.json()
+
 
   const resLiveAnywhere = await fetch('https://jsonkeeper.com/b/JBFV')
   const liveAnywhereData = await resLiveAnywhere.json()
 
-  const getFooterData = await fetch('https://jsonkeeper.com/b/C0KE')
-  const footerData = await getFooterData.json()
 
   return {
     props: {

@@ -1,0 +1,73 @@
+[
+  {
+    "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628790078/airbnb-clone/property1_l66fcr.webp",
+    "location":"Dubai Marina",
+    "title":"STUDIO ONE RESIDENCE offers guests everything needed for a perfect stay in the heart of Dubai Marina",
+    "description":"1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine",
+    "star": 4.73,
+    "price": 95,
+    "long":55.149230,
+    "lat":25.084860
+  },
+  {
+    "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628790078/airbnb-clone/property2_eopfjh.webp",
+    "location":"Downtown Dubai",
+    "title":"Luxury Penthouse in front of Burjkalifa with Pool",
+    "description":"2 guest · 3 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen",
+    "star":4.3,
+    "price": 150,
+    "long":55.278920,
+    "lat":25.193150
+  },
+  {
+    "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628790078/airbnb-clone/property3_jygsaf.webp",
+    "location":"Pier 7 Dubai Marina",
+    "title":"SIlverene ultra-Luxury 1 bed Next to marina mall",
+    "description":"4 guest · 4 bedroom · 4 bed · 2 bathrooms · Free parking · Washing Machine",
+    "star":3.8,
+    "price":"£35 / night",
+    "total":"£207 total",
+    "long":55.138856846109334,
+    "lat":25.07622695
+  },
+  {
+    "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628790078/airbnb-clone/property4_zqmpbi.webp",
+    "location":"Dubai International Financial Centre (DIFC)",
+    "title":"50m2 Studio, King Bed, central DIFC, VALUE & EASY",
+    "description":"1 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine",
+    "star":4.1,
+    "price":125,
+    "long":55.28283001503219,
+    "lat":25.213679550000002
+  },
+  {
+    "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628790078/airbnb-clone/property5_nooeky.webp",
+    "location":"Beach house in Dubai",
+    "title":"Beach House Bali Style in Umm Suqueim 1",
+    "description":"3 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Free parking · Dry Cleaning",
+    "star":5,
+    "price":50,
+    "long":55.194110870361335,
+    "lat":25.14730470963993
+  },
+  {
+    "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628790078/airbnb-clone/property6_ma9nsl.webp",
+    "location":"Dubai, Media City 37",
+    "title":"Radisson Blu Hotel Dubai, Media City 37",
+    "description":"2 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Washing Machine",
+    "star":4.23,
+    "price":75,
+    "long":55.1523767239939,
+    "lat":25.0927636
+  },
+  {
+    "img":"https://res.cloudinary.com/drfgkfzk2/image/upload/v1628790078/airbnb-clone/property7_p7w0gr.webp",
+    "location":"Spacious Studio in Jumeirah Beach Residence",
+    "title":"Amazing Studio | Direct Beach Access | Spacious",
+    "description":"3 guest · 1 bedroom · 1 bed · 1.5 shared bthrooms · Wifi · Kitchen · Free parking · Washing Machine",
+    "star":3.85,
+    "price":75,
+    "long":55.190826954504644,
+    "lat":25.14159475
+  }
+]

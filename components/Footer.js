@@ -30,3 +30,15 @@ const Footer = ({footerData}) => {
 }
 
 export default Footer
+
+export const getServerSideProps = async() => {
+
+  const getFooterData = await fetch('https://jsonkeeper.com/b/C0KE')
+  const footerData = await getFooterData.json()
+
+  return {
+    props: {
+      footerData
+    }
+  }
+}
