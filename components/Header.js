@@ -6,11 +6,11 @@ import { useRouter } from 'next/dist/client/router'
 import DatePicker from './DatePicker'
 
 
-const Header = () => {
+const Header = ({placeholder}) => {
   const router = useRouter()
   const [ searchInput, setSearchInput ] = useState('')
 
-
+  
 
   const handleSearchState = (e) => {
     const searchText = e.target.value
@@ -34,7 +34,7 @@ const Header = () => {
         <input 
           className='flex-grow pl-5 bg-transparent outline-none' 
           type="text" 
-          placeholder='Where are you going?'
+          placeholder={ placeholder || 'Where are you going?'}
           value={searchInput}
           onChange={ (e) => handleSearchState(e)}
         />
@@ -50,7 +50,10 @@ const Header = () => {
         </div>
       </div>
       { 
-        searchInput && <DatePicker setSearchInput={setSearchInput} />
+        searchInput && <DatePicker 
+        setSearchInput={setSearchInput} 
+        searchInput={searchInput}
+        />
       }
     </div>
   )

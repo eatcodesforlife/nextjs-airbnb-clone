@@ -4,10 +4,10 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
 import { UsersIcon } from '@heroicons/react/solid';
 import { useRouter } from 'next/dist/client/router';
-import { getRouteMatcher } from 'next/dist/next-server/lib/router/utils';
+import { format } from 'date-fns';
 
 
-const DatePicker = ({ setSearchInput }) => {
+const DatePicker = ({ setSearchInput, searchInput }) => {
   const router = useRouter()
   const [ startDate, setStartDate ] = useState(new Date())
   const [ endDate, setEndDate ] = useState(new Date())
@@ -24,9 +24,23 @@ const DatePicker = ({ setSearchInput }) => {
     setEndDate(ranges.selection.endDate)
    }
 
+  const formattedStartDate = format( new Date(startDate.toISOString()), 'MMM dd yy')
+  
+  const formattedEndDate = format( new Date(endDate.toISOString()), 'MMM dd yy')
+
   const search = () => {
-    router.push('/search')
+    router.push({
+      pathname: '/search',
+      query : {
+        city: searchInput.toUpperCase(),
+        startDate: formattedStartDate,
+        endDate: formattedEndDate,
+        numberOfGuests
+      }
+    })
+    setSearchInput('')
   }
+
   return (
     <div className='flex flex-col col-span-3 mx-auto mt-2' >
       <DateRangePicker
