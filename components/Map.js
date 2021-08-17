@@ -4,7 +4,7 @@ import getCenter from 'geolib/es/getCenter'
 import RoomIcon from '@material-ui/icons/Room'
 
 const MAP_STYLE_URL = process.env.MAP_STYLE_URL
-const MAP_KEY = process.env.MAP_ACCESS_TOKEN 
+const MAP_ACCESS_TOKEN = process.env.MAP_ACCESS_TOKEN 
 
 const Map = ({propertyList}) => {
   
@@ -28,7 +28,7 @@ const Map = ({propertyList}) => {
         width="100%"
         height="100%"
         mapStyle={MAP_STYLE_URL}
-        mapboxApiAccessToken={MAP_KEY}
+        mapboxApiAccessToken={MAP_ACCESS_TOKEN}
         {...viewport}
         onViewportChange={(viewport) => setViewport(viewport)}
       >
