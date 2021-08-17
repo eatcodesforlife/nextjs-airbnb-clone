@@ -2,6 +2,7 @@ import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Map from '../components/Map'
 import PropertyList from '../components/PropertyList'
 
 const footerLinks = 'https://jsonkeeper.com/b/C0KE'
@@ -41,6 +42,9 @@ const Search = ({footerData, propertyList}) => {
               ))
             }
           </div>
+        </section>
+        <section className='hidden xl:min-w-[600px] xl:inline-flex'>
+          <Map propertyList={propertyList}/>
         </section>        
       </main>
       <Footer footerData={footerData} />
