@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Main from '../components/Main'
 import Footer from '../components/Footer'
 
-const Home = ({ explorePlacesData, liveAnywhereData, footerData }) => {
+const Home = ({ explorePlacesData, liveAnywhereData, footerData, activities }) => {
 
   return (
     <div>
@@ -12,13 +12,17 @@ const Home = ({ explorePlacesData, liveAnywhereData, footerData }) => {
         <title>AirBnB</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
-      <Hero />
-      <Main 
-        explorePlaces={explorePlacesData}
-        liveAnywhereData={liveAnywhereData}
-      />
-      <Footer footerData={footerData} />
+      <div className='bg-gray-50'>
+        <Header />
+        <Hero />
+        <Main 
+          explorePlaces={explorePlacesData}
+          liveAnywhereData={liveAnywhereData}
+          activities={activities}
+          className='bg-white'
+        />      
+        <Footer footerData={footerData} />
+      </div>
     </div>
   )
 }
@@ -36,12 +40,15 @@ export const getStaticProps = async () => {
   const resLiveAnywhere = await fetch('https://jsonkeeper.com/b/JBFV')
   const liveAnywhereData = await resLiveAnywhere.json()
 
+  const getActivitiesData = await fetch('https://jsonkeeper.com/b/23BU')
+  const activities = await getActivitiesData.json()
 
   return {
     props: {
       explorePlacesData,
       liveAnywhereData,
-      footerData
+      footerData,
+      activities
     }
   }
 }
