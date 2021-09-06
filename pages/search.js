@@ -1,15 +1,18 @@
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Map from '../components/Map'
 import PropertyList from '../components/PropertyList'
+import CityNotFound from '../components/CityNotFound'
 
-const footerLinks = 'https://jsonkeeper.com/b/C0KE'
-const propertyData = 'https://jsonkeeper.com/b/4GI2'
 
-const Search = ({footerData, propertyList}) => {
-  
+const Search = ({footerData, cities}) => {
+  const [ cityPropertyList, setCityPropertyList ] = useState([])
+  const [ isCityFound, setIsCityFound ] = useState(true)
+  const [ coordinates, setCoordinates ] = useState([])
+
   const router = useRouter()
 
   const { 
@@ -20,32 +23,64 @@ const Search = ({footerData, propertyList}) => {
 
   const range = `${startDate} to ${endDate}`  
 
+  useEffect(() => {
+    
+    const noSpaceCityName = city.split(' ').join('').toLowerCase()
+
+    const searchedCity = cities.find( search => Object.keys(search).toString() ===  noSpaceCityName)
+    
+    if( !searchedCity ){
+      setIsCityFound(!isCityFound)
+    }else{
+      setCityPropertyList(searchedCity[noSpaceCityName])
+    }
+    
+    
+  }, [city])
+
+  useEffect(() => {
+    setCoordinates(
+       cityPropertyList.map(({long, lat}) =>({
+          longitude: long,
+          latitude: lat
+        }
+      ))
+    )
+  },[cityPropertyList])
+  
 
   return (
     <div>
       <Header placeholder={`${city} | ${startDate} - ${endDate} | ${numberOfGuests} guests `} />
       <main className='max-w-md mx-auto flex' >
-        <section className='flex-grow' >
-          <p className='text-xs' > 500+ stays - {range} - for {numberOfGuests} number of guests</p>
-          <h1 className='text-3xl font-semibold mt-2 mb-6' >Stays in {city} </h1>
-          <div className='flex' >
-            <button className='button'>Cancellation policy</button>
-            <button className='button'>Type of place</button>
-            <button className='button'>Price</button>
-            <button className='button'>Rooms and Beds</button>
-            <button className='button'>More filters</button>
+        {
+          !isCityFound ? <CityNotFound city={city} cityPropertyList={cityPropertyList}/>
+          : <div>
+            <section className='flex-grow' >
+              <p className='text-xs' > {cityPropertyList.length}+ stays - {range} - for {numberOfGuests} number of guests</p>
+              <h1 className='text-3xl font-semibold mt-2 mb-6' >Stays in {city} </h1>
+              <div className='flex' >
+                <button className='button'>Cancellation policy</button>
+                <button className='button'>Type of place</button>
+                <button className='button'>Price</button>
+                <button className='button'>Rooms and Beds</button>
+                <button className='button'>More filters</button>
+              </div>
+              <div className='flex flex-col' >
+                {
+                  cityPropertyList.map( property => (
+                    <PropertyList key={property.lat} 
+                      {...property} 
+                    />
+                  ))
+                }
+              </div>
+            </section>
+            <section className='hidden xl:min-w-[600px] xl:inline-flex '>
+              <Map propertyList={cityPropertyList} coordinates={coordinates}/>
+            </section>
           </div>
-          <div className='flex flex-col' >
-            {
-              propertyList.map( property => (
-                <PropertyList key={property.lat} {...property}/>
-              ))
-            }
-          </div>
-        </section>
-        <section className='hidden xl:min-w-[600px] xl:inline-flex'>
-          <Map propertyList={propertyList}/>
-        </section>        
+        }        
       </main>
       <Footer footerData={footerData} />
     </div>
@@ -58,15 +93,13 @@ export default Search
 export const getServerSideProps = async() => {
   
   const footerData = await fetch(footerLinks).then( res => res.json())
+  const cities = await fetch('https://my-react-projects-fake-api.herokuapp.com/airbnb-clone-city-search-results').then( res => res.json())
 
-  const propertyList = await fetch(propertyData).then( res => res.json())
-
-  
 
   return {
     props: {
-      propertyList,
-      footerData
+      footerData,
+      cities
     }
   }
 }

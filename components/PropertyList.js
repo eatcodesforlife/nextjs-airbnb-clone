@@ -3,8 +3,9 @@ import React from 'react'
 import { HeartIcon } from '@heroicons/react/outline'
 import { StarIcon } from '@heroicons/react/solid'
 
-const PropertyList = ({ img, title, description, location, star, price, long, lat}
+const PropertyList = ({ img, title, description, location, star, price, isSuperHost}
 ) => {
+
   return (
     <article className='flex py-7 px-2 border-b cursor-pointer hover:shadow-lg transition duration-200 ease-out first:border-t rounded-2xl'>
       <div className='relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0' >
@@ -14,6 +15,11 @@ const PropertyList = ({ img, title, description, location, star, price, long, la
           objectFit='cover'
           className='transition duration-200 hover:opacity-80 rounded-lg'
         />
+        {
+          isSuperHost && <span className='absolute bg-white px-2 py-1 rounded text-xs font-semibold top-5 left-5 shadow' >
+            SUPERHOST
+          </span> 
+        }
       </div>
       <div className='flex flex-col flex-grow pl-5'>
         <div className='flex justify-between' >
@@ -31,7 +37,7 @@ const PropertyList = ({ img, title, description, location, star, price, long, la
           </p>
           <div >
             <p className='text-lg font-semibold pt-2 lg:text-2xl' >${price}/night</p>
-            <p className='text-right font-extralight' >$257 total</p>
+            <p className='text-right font-extralight' >$250 total</p>
           </div>
         </div>
       </div>

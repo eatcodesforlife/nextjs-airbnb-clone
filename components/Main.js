@@ -28,7 +28,7 @@ const Main = ({ explorePlaces, liveAnywhereData, activities }) => {
         <div className='flex space-x-3 overflow-x-scroll scrollbar-hide p-3 -ml-3' >
           {
             liveAnywhereData.map( places => (
-              <MediumCard key={places.id} {...places} />
+              <MediumCard key={uuidv4()} {...places} />
             ))
           }  
         </div>
@@ -41,7 +41,7 @@ const Main = ({ explorePlaces, liveAnywhereData, activities }) => {
         <div className='flex space-x-3 overflow-x-scroll scrollbar-hide p-3 -ml-3'>
           {
             activities.map( activity => (
-              <MediumCardsTwo key={activity} {...activity}/>
+              <MediumCardsTwo key={uuidv4()} {...activity}/>
             ))
           }
         </div>

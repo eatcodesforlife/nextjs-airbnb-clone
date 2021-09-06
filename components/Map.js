@@ -1,27 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import getCenter from 'geolib/es/getCenter'
 import RoomIcon from '@material-ui/icons/Room'
 
 const MAP_STYLE_URL = process.env.MAP_STYLE_URL
-const MAP_ACCESS_TOKEN = process.env.MAP_ACCESS_TOKEN 
+const MAP_ACCESS_TOKEN = process.env.MAP_ACCESS_TOKEN
 
-const Map = ({propertyList}) => {
+const Map = ({propertyList, coordinates}) => {
   
-  const coordinates = propertyList.map(({long, lat}) =>({
-    longitude: long,
-    latitude: lat
-  }))
-
   const { latitude, longitude } = getCenter(coordinates)
   const [viewport, setViewport] = useState({   
     latitude,
     longitude,
     zoom: 10
   });
+  
   const [ selectedProperty, setSelectedProperty ] = useState('')
  
   
+  
+  
+
   return (
     <>
       <ReactMapGL
