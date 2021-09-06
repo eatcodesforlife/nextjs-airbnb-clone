@@ -49,6 +49,9 @@ const Search = ({footerData, cities}) => {
   },[cityPropertyList])
   
 
+
+
+
   return (
     <div>
       <Header placeholder={`${city} | ${startDate} - ${endDate} | ${numberOfGuests} guests `} />
@@ -76,9 +79,9 @@ const Search = ({footerData, cities}) => {
                 }
               </div>
             </section>
-            <section className='hidden xl:min-w-[600px] xl:inline-flex '>
+            {/* <section className='hidden xl:min-w-[600px] xl:inline-flex '>
               <Map propertyList={cityPropertyList} coordinates={coordinates}/>
-            </section>
+            </section> */}
           </div>
         }        
       </main>
