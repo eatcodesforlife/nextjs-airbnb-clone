@@ -49,7 +49,7 @@ const Search = ({footerData, cities}) => {
   },[cityPropertyList])
   
 
-
+  console.log(cityPropertyList)
 
 
   return (
@@ -79,9 +79,9 @@ const Search = ({footerData, cities}) => {
                 }
               </div>
             </section>
-            {/* <section className='hidden xl:min-w-[600px] xl:inline-flex '>
+            <section className='hidden xl:min-w-[600px] xl:inline-flex '>
               <Map propertyList={cityPropertyList} coordinates={coordinates}/>
-            </section> */}
+            </section>
           </div>
         }        
       </main>
@@ -95,7 +95,8 @@ export default Search
 
 export const getServerSideProps = async() => {
   
-  const footerData = await fetch(footerLinks).then( res => res.json())
+  const footerData = await fetch('https://my-react-projects-fake-api.herokuapp.com/footer').then( res => res.json())
+  
   const cities = await fetch('https://my-react-projects-fake-api.herokuapp.com/airbnb-clone-city-search-results').then( res => res.json())
 
 
