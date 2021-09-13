@@ -2,62 +2,69 @@ import React, { useEffect, useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import getCenter from 'geolib/es/getCenter'
 import RoomIcon from '@material-ui/icons/Room'
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 
 const MAP_STYLE_URL = process.env.MAP_STYLE_URL
 const MAP_ACCESS_TOKEN = process.env.MAP_ACCESS_TOKEN
 
 const Map = ({propertyList, coordinates}) => {
-  
+    
   const { latitude, longitude } = getCenter(coordinates)
-  const [viewport, setViewport] = useState({   
-    latitude,
-    longitude,
-    zoom: 10
-  });
+  
+  const [viewport, setViewport] = useState({});
+
+  useEffect(() => {
+    setViewport({
+      width: 800,
+      height: 1200,
+      longitude,
+      latitude,
+      zoom: 10,
+    })
+  }, [coordinates])
   
   const [ selectedProperty, setSelectedProperty ] = useState('')
- 
   
   
-  
-
+  console.log(coordinates)
+  console.log(viewport)
   return (
-    <>
+    <div className="sticky h-screen">
       <ReactMapGL
-        width="100%"
-        height="100%"
         mapStyle={MAP_STYLE_URL}
         mapboxApiAccessToken={MAP_ACCESS_TOKEN}
         {...viewport}
         onViewportChange={(viewport) => setViewport(viewport)}
       >
         {
-          propertyList.map( ({title, long, lat}) =>(
+          propertyList.map( ({title, price, long, lat}) =>(
             <div key={long}>
               <Marker
                 longitude={long}
                 latitude={lat}
-                onClick={() => setSelectedProperty(title)}
+                onClick={() => setSelectedProperty(price)}
               >
-                <p className='text-red-500 animate-bounce  cursor-pointer'
+                <p className='text-red-500 cursor-pointer  '
                   aria-label='map-marker'
                 >
                   <RoomIcon />
                 </p>
               </Marker>
-              { selectedProperty === title && <Popup
+              { selectedProperty === price && <Popup
                 longitude={long}
                 latitude={lat}
                 onClose={() => setSelectedProperty('')}
                 closeOnClick={true}
+                className='ml-2.5 mt-5'                
               >
-                {title}
+                <p className='font-medium px-2'>${price}</p>
               </Popup> }
             </div>
           ))
         }
-      </ReactMapGL>      
-    </>
+      </ReactMapGL>  
+    </div>
   )
 }
 

@@ -49,17 +49,15 @@ const Search = ({footerData, cities}) => {
   },[cityPropertyList])
   
 
-  console.log(cityPropertyList)
-
 
   return (
     <div>
       <Header placeholder={`${city} | ${startDate} - ${endDate} | ${numberOfGuests} guests `} />
-      <main className='max-w-md mx-auto flex' >
+      <main>
         {
           !isCityFound ? <CityNotFound city={city} cityPropertyList={cityPropertyList}/>
-          : <div>
-            <section className='flex-grow' >
+          :<div className='max-w-md mx-auto flex relative'>
+            <section className='flex-grow ' >
               <p className='text-xs' > {cityPropertyList.length}+ stays - {range} - for {numberOfGuests} number of guests</p>
               <h1 className='text-3xl font-semibold mt-2 mb-6' >Stays in {city} </h1>
               <div className='flex' >
@@ -79,7 +77,7 @@ const Search = ({footerData, cities}) => {
                 }
               </div>
             </section>
-            <section className='hidden xl:min-w-[600px] xl:inline-flex '>
+            <section className='hidden lg:flex-grow lg:min-w-[600px] lg:inline-flex relative'>
               <Map propertyList={cityPropertyList} coordinates={coordinates}/>
             </section>
           </div>
