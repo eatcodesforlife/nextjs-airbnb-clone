@@ -27,8 +27,6 @@ const Map = ({propertyList, coordinates}) => {
   const [ selectedProperty, setSelectedProperty ] = useState('')
   
   
-  console.log(coordinates)
-  console.log(viewport)
   return (
     <div className="sticky h-screen">
       <ReactMapGL
