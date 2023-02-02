@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className='relative h-[300px] sm:h-[400px] lg:h-[600px] xl:[700px]' >
       <Image src='https://res.cloudinary.com/drfgkfzk2/image/upload/v1628213768/airbnb-clone/airbnb-hero-img_edtqe7.webp' 
-        layout='fill'
+        fill
         objectFit='cover'
       />
       <div className='absolute top-1/2 w-full text-center'>

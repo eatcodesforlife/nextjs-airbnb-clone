@@ -33,7 +33,7 @@ export default Footer
 
 export const getServerSideProps = async() => {
 
-  const getFooterData = await fetch('https://jsonkeeper.com/b/C0KE')
+  const getFooterData = await fetch('https://react-projects-api.up.railway.app/footer')
   const footerData = await getFooterData.json()
 
   return {

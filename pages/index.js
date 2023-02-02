@@ -36,17 +36,17 @@ export const getStaticProps = async () => {
   
   
 
-  const resPlaces = await fetch('https://my-react-projects-fake-api.herokuapp.com/places')
+  const resPlaces = await fetch('https://react-projects-api.up.railway.app/places')
   const explorePlacesData = await resPlaces.json()
 
-  const getFooterData = await fetch('https://my-react-projects-fake-api.herokuapp.com/footer')
+  const getFooterData = await fetch('https://react-projects-api.up.railway.app/footer')
   const footerData = await getFooterData.json()
 
 
-  const resLiveAnywhere = await fetch('https://my-react-projects-fake-api.herokuapp.com/liveAnywhere')
+  const resLiveAnywhere = await fetch('https://react-projects-api.up.railway.app/liveAnywhere')
   const liveAnywhereData = await resLiveAnywhere.json()
 
-  const getActivitiesData = await fetch('https://my-react-projects-fake-api.herokuapp.com/activities')
+  const getActivitiesData = await fetch('https://react-projects-api.up.railway.app/activities')
   const activities = await getActivitiesData.json()
 
   return {

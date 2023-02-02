@@ -93,9 +93,9 @@ export default Search
 
 export const getServerSideProps = async() => {
   
-  const footerData = await fetch('https://my-react-projects-fake-api.herokuapp.com/footer').then( res => res.json())
+  const footerData = await fetch('https://react-projects-api.up.railway.app/footer').then( res => res.json())
   
-  const cities = await fetch('https://my-react-projects-fake-api.herokuapp.com/airbnb-clone-city-search-results').then( res => res.json())
+  const cities = await fetch('https://react-projects-api.up.railway.app/airbnb-clone-city-search-results').then( res => res.json())
 
 
   return {
